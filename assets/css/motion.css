@@ -1,0 +1,318 @@
+/* ==========================================================================
+   EJUVV — motion: estados iniciais, camada do foguete, reduced-motion
+   ========================================================================== */
+
+/* Estados iniciais só existem quando o JS está ativo. Sem JS, o conteúdo
+   aparece normalmente — nunca fica preso em opacity: 0. */
+.js [data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+.js [data-reveal].is-revealed { will-change: auto; }
+
+/* ==========================================================================
+   Camada do foguete
+   ========================================================================== */
+#rocket-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  contain: layout style;
+}
+
+#rocket-layer svg.traj-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Rastro da trajetória — o stroke-dasharray é controlado pelo createDrawable
+   do anime.js, então não deve ser definido aqui. */
+#traj {
+  fill: none;
+  stroke: var(--trail-color, rgba(170, 181, 238, 0.34));
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  transition: stroke 0.35s var(--ease-out);
+}
+
+/* O foguete: posicionado no ponto do path pelo deslocamento de margem,
+   de modo que a rotação pivote exatamente sobre a tangente. */
+#rocket {
+  --rw: 54px;
+  --rh: 86px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--rw);
+  height: var(--rh);
+  margin-left: calc(var(--rw) / -2);
+  margin-top: calc(var(--rh) / -2);
+  will-change: transform;
+  opacity: 0;
+}
+
+#rocket svg { width: 100%; height: 100%; overflow: visible; }
+
+/* Brilho — elipse estática alternada por opacidade (nunca drop-shadow) */
+#r-glow {
+  fill: url(#rocketGlow);
+  opacity: 0.55;
+  transition: opacity 0.35s var(--ease-out);
+}
+
+#r-body { fill: var(--rocket-body, #e8e4f2); transition: fill 0.35s var(--ease-out); }
+#r-nose { fill: var(--rocket-accent, #aab5ee); transition: fill 0.35s var(--ease-out); }
+#r-fin-l,
+#r-fin-r { fill: var(--rocket-fin, #8067ff); transition: fill 0.35s var(--ease-out); }
+#r-thruster { fill: var(--rocket-fin, #6d5bbf); transition: fill 0.35s var(--ease-out); }
+#r-window { fill: var(--rocket-window, #35143d); transition: fill 0.35s var(--ease-out); }
+#r-glint { fill: rgba(255, 255, 255, 0.55); }
+
+#r-flame {
+  fill: url(#flameGrad);
+  transform-origin: 50% 0%;
+  transform-box: fill-box;
+  opacity: 0;
+}
+
+/* O grupo recebe a deformação de velocidade; as peças, a montagem inicial.
+   Separar os dois evita que um transform cancele o outro. */
+#r-craft {
+  transform-origin: 50% 62%;
+  transform-box: fill-box;
+}
+
+/* Cada peça gira e escala em torno de si mesma durante a montagem. */
+.r-part {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+/* Partículas do rastro, geradas em espaço de página dentro do SVG da
+   trajetória — por isso herdam a cor da camada, não a do foguete. */
+#r-trail-particles { fill: var(--rocket-accent, #aab5ee); }
+
+/* Adaptação ao tom da seção corrente */
+#rocket-layer[data-tone='dark'] {
+  --rocket-body: #ece9f5;
+  --rocket-accent: #aab5ee;
+  --rocket-fin: #8067ff;
+  --rocket-window: #2b1033;
+  --trail-color: rgba(170, 181, 238, 0.4);
+}
+#rocket-layer[data-tone='light'] {
+  --rocket-body: #55235c;
+  --rocket-accent: #8067ff;
+  --rocket-fin: #704078;
+  --rocket-window: #f2edf4;
+  --trail-color: rgba(85, 35, 92, 0.26);
+}
+#rocket-layer[data-tone='light'] #r-glow { opacity: 0.22; }
+
+/* Anéis orbitais do hero */
+.hero-ring { transform-origin: center; }
+
+/* ==========================================================================
+   Cena de montagem — o foguete construído por fragmentos
+
+   A seção alta é só espaço de scroll; nada dentro dela rola. O palco fica
+   preso na viewport e o canvas desenha a cena inteira. Toda a animação vive
+   no canvas: o CSS aqui posiciona, pinta o fundo e reage à fase publicada
+   pelo JS em [data-phase].
+   ========================================================================== */
+.assembly {
+  --assembly-scroll: 300vh;
+  position: relative;
+  height: var(--assembly-scroll);
+  background:
+    linear-gradient(180deg, var(--deep) 0%, var(--void) 16%, var(--void) 84%, var(--deep) 100%);
+  color: var(--on-dark);
+}
+
+.assembly-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+#assembly-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Grade de engenharia: presente o suficiente para dar escala, discreta o
+   bastante para não disputar com os fragmentos. A máscara evita a borda
+   dura das linhas nos cantos. */
+.assembly-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(170, 181, 238, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(170, 181, 238, 0.055) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 50%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(ellipse 62% 58% at 50% 50%, #000 20%, transparent 78%);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.assembly-hud {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--header-h) + 34px) 0 44px;
+  pointer-events: none;
+}
+
+.assembly-copy {
+  max-width: 30ch;
+  pointer-events: auto;
+}
+.assembly-copy h2 { font-size: clamp(1.7rem, 3.4vw, 2.8rem); }
+.assembly-copy p {
+  margin-top: 16px;
+  max-width: 34ch;
+  font-size: 0.95rem;
+  color: var(--on-dark-soft);
+}
+
+/* Leitura de estado — o HUD que confirma ao usuário que ele é quem conduz. */
+.assembly-readout {
+  display: grid;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.assembly-phases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--on-dark-faint);
+}
+
+.assembly-phases li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  opacity: 0.4;
+  transition: opacity var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+}
+.assembly-phases li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: background var(--dur) var(--ease-out);
+}
+
+.assembly-stage[data-phase='scatter'] [data-for='scatter'],
+.assembly-stage[data-phase='assemble'] [data-for='assemble'],
+.assembly-stage[data-phase='formed'] [data-for='formed'],
+.assembly-stage[data-phase='disassemble'] [data-for='disassemble'],
+.assembly-stage[data-phase='gone'] [data-for='disassemble'] {
+  opacity: 1;
+  color: var(--accent);
+}
+.assembly-stage[data-phase='scatter'] [data-for='scatter']::before,
+.assembly-stage[data-phase='assemble'] [data-for='assemble']::before,
+.assembly-stage[data-phase='formed'] [data-for='formed']::before,
+.assembly-stage[data-phase='disassemble'] [data-for='disassemble']::before,
+.assembly-stage[data-phase='gone'] [data-for='disassemble']::before { background: var(--accent); }
+
+.assembly-bar {
+  position: relative;
+  height: 2px;
+  background: rgba(170, 181, 238, 0.16);
+  overflow: hidden;
+}
+.assembly-bar span {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  transform: scaleX(var(--assembly-progress, 0));
+  transform-origin: left center;
+}
+
+/* Convite de rolagem: some assim que o usuário começa a conduzir. */
+.assembly-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 96px;
+  transform: translateX(-50%);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--on-dark-faint);
+  opacity: calc(1 - var(--assembly-progress, 0) * 14);
+  transition: opacity 0.2s linear;
+}
+
+@media (max-width: 900px) {
+  .assembly { --assembly-scroll: 260vh; }
+  .assembly-copy { max-width: 22ch; }
+  .assembly-copy p { display: none; }
+  .assembly-phases { font-size: 0.62rem; gap: 8px 16px; }
+  .assembly-cue { display: none; }
+}
+
+/* ==========================================================================
+   Redução de movimento
+   O JS (env.js) é a autoridade sobre o anime.js — estas regras cobrem
+   apenas as animações declarativas em CSS.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .marquee-track { animation: none; }
+  .brand-mark { animation: none; }
+
+  .js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #rocket-layer { display: none; }
+
+  /* A cena de montagem vira uma imagem: o JS desenha o foguete formado uma
+     vez e a seção encolhe para a altura de uma tela — sem scroll a gastar
+     numa animação que não vai acontecer. */
+  .assembly { --assembly-scroll: 100vh; }
+  .assembly-phases li { transition: none; }
+
+  .btn:hover,
+  .service-card:hover,
+  .project-card:hover,
+  .value-card:hover,
+  .numbered-card:hover,
+  .logo-slot:hover,
+  .map-card:hover,
+  .wa-float:hover { transform: none; }
+
+  .faq-a { transition-duration: 0.01ms; }
+}
+
+/* ==========================================================================
+   Responsivo do foguete
+   ========================================================================== */
+@media (max-width: 767px) {
+  #rocket { --rw: 28px; --rh: 44px; }
+  #r-glow { opacity: 0.35; }
+  #traj { stroke-width: 1.1; }
+}

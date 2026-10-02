@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0714"/>
+      <stop offset=".5" stop-color="#180d27"/>
+      <stop offset="1" stop-color="#35143d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".78" cy=".42" r=".55">
+      <stop offset="0" stop-color="#8067ff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#8067ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3c4"/>
+      <stop offset=".45" stop-color="#ffb45c"/>
+      <stop offset="1" stop-color="#ff6a3d" stop-opacity=".15"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g stroke="rgba(170,181,238,.2)" fill="none">
+    <ellipse cx="900" cy="300" rx="215" ry="215"/>
+    <ellipse cx="900" cy="300" rx="285" ry="150" transform="rotate(-18 900 300)"/>
+    <ellipse cx="900" cy="300" rx="140" ry="270" transform="rotate(24 900 300)"/>
+  </g>
+
+  <g fill="#aab5ee">
+    <circle cx="1112" cy="252" r="4"/><circle cx="702" cy="392" r="3.4"/><circle cx="905" cy="42" r="3"/>
+  </g>
+
+  <g transform="translate(900 300) rotate(24) scale(2.1)">
+    <path d="M0 26c4 6 6.5 11 6.5 15 0 5-3 8-6.5 8s-6.5-3-6.5-8c0-4 2.5-9 6.5-15Z" fill="url(#flame)"/>
+    <path d="M-11 0c-7 4-11 11-11 22l11-6Zm22 0c7 4 11 11 11 22l-11-6Z" fill="#8067ff"/>
+    <path d="M-9 17h18l-3 9h-12Z" fill="#6d5bbf"/>
+    <path d="M0-40c6 10 11 22 11 36v22h-22V-4c0-14 5-26 11-36Z" fill="#ece9f5"/>
+    <path d="M0-40c4 6.5 7.5 14 9.4 22H-9.4C-7.5-26-4-33.5 0-40Z" fill="#aab5ee"/>
+    <circle cx="0" cy="-13" r="6" fill="#2b1033"/>
+  </g>
+
+  <g font-family="'Space Grotesk','Segoe UI',sans-serif">
+    <text x="90" y="196" fill="#aab5ee" font-size="21" font-weight="700" letter-spacing="7">EJUVV</text>
+    <text x="90" y="292" fill="#ffffff" font-size="66" font-weight="600" letter-spacing="-2.6">Estratégia para negócios.</text>
+    <text x="90" y="368" fill="#aab5ee" font-size="66" font-weight="600" letter-spacing="-2.6">Experiência para o futuro.</text>
+    <text x="90" y="440" fill="#cfc6d6" font-size="24" font-family="'Inter','Segoe UI',sans-serif">Empresa Júnior da Universidade Vila Velha</text>
+  </g>
+
+  <rect x="90" y="492" width="4" height="52" fill="#8067ff"/>
+  <text x="112" y="514" fill="#9a8fa4" font-size="17" font-family="'Inter','Segoe UI',sans-serif">Consultoria empresarial multidisciplinar</text>
+  <text x="112" y="538" fill="#9a8fa4" font-size="17" font-family="'Inter','Segoe UI',sans-serif">ejuvv.com · comercial@ejuvv.com</text>
+</svg>

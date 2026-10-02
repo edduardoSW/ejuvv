@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EJUVV | Estratégia para negócios</title>
+<meta name="description" content="Empresa Júnior da Universidade Vila Velha. Projetos de sites, e-commerce, automação de atendimento e sistemas sob medida.">
+<link rel="canonical" href="https://ejuvv.com/">
+<meta property="og:title" content="EJUVV. Estratégia para negócios. Experiência para o futuro.">
+<meta property="og:description" content="Conheça os serviços e projetos desenvolvidos por estudantes da Universidade Vila Velha.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://ejuvv.com/">
+<meta property="og:image" content="https://ejuvv.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#35143d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/motion.css">
+<link rel="modulepreload" href="/assets/js/vendor/anime.esm.min.js">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="EJUVV, início">
+      <img class="brand-mark" src="/assets/img/logo-ejuvv-symbol.png" alt="" aria-hidden="true">
+      <span>EJUVV</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="/" aria-current="page">Início</a>
+      <a href="/sobre/">Sobre</a>
+      <a href="/solucoes/">Soluções</a>
+      <a href="/projetos/">Projetos</a>
+      <a href="/orbita/">Órbita</a>
+      <a href="/contato/">Contato</a>
+    </nav>
+    <a class="btn btn-primary" href="/contato/" data-magnetic>Pedir orçamento</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu">
+      <svg class="icon-open" aria-hidden="true"><use href="/assets/img/icons.svg#i-menu"/></svg>
+      <svg class="icon-close" aria-hidden="true" hidden><use href="/assets/img/icons.svg#i-x"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a class="m-link" href="/">Início <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-chevron-right"/></svg></a>
+  <a class="m-link" href="/sobre/">Sobre <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-chevron-right"/></svg></a>
+  <a class="m-link" href="/solucoes/">Soluções <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-chevron-right"/></svg></a>
+  <a class="m-link" href="/projetos/">Projetos <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-chevron-right"/></svg></a>
+  <a class="m-link" href="/orbita/">Órbita <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-chevron-right"/></svg></a>
+  <a class="m-link" href="/contato/">Contato <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-chevron-right"/></svg></a>
+  <a class="btn btn-primary" href="/orbita/">Faça parte da EJUVV <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+</div>
+
+<div id="page">
+
+  <!-- ============ Camada do foguete ============ -->
+  <div id="rocket-layer" data-tone="dark" aria-hidden="true">
+    <svg class="traj-svg" viewBox="0 0 1000 4000" preserveAspectRatio="xMinYMin meet" fill="none">
+      <path id="traj"/>
+    </svg>
+    <div id="rocket">
+      <svg viewBox="0 0 54 86" fill="none">
+        <defs>
+          <radialGradient id="rocketGlow">
+            <stop offset="0" stop-color="#8067ff" stop-opacity=".5"/>
+            <stop offset="1" stop-color="#8067ff" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff3c4"/>
+            <stop offset=".45" stop-color="#ffb45c"/>
+            <stop offset="1" stop-color="#ff6a3d" stop-opacity=".2"/>
+          </linearGradient>
+        </defs>
+        <ellipse id="r-glow" cx="27" cy="46" rx="32" ry="44"/>
+        <g id="r-craft">
+          <path id="r-flame" d="M27 70c4 6 6.5 11 6.5 15 0 5-3 8-6.5 8s-6.5-3-6.5-8c0-4 2.5-9 6.5-15Z"/>
+          <path id="r-fin-l" class="r-part" d="M16 44c-7 4-11 11-11 22l11-6Z"/>
+          <path id="r-fin-r" class="r-part" d="M38 44c7 4 11 11 11 22l-11-6Z"/>
+          <path id="r-thruster" class="r-part" d="M18 61h18l-3 9H21Z"/>
+          <path id="r-body" class="r-part" d="M27 4c6 10 11 22 11 36v22H16V40C16 26 21 14 27 4Z"/>
+          <path id="r-nose" class="r-part" d="M27 4c4 6.5 7.5 14 9.4 22H17.6C19.5 18 23 10.5 27 4Z"/>
+          <circle id="r-window" class="r-part" cx="27" cy="31" r="6"/>
+          <ellipse id="r-glint" cx="25" cy="29" rx="2.1" ry="2.8"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ Hero: lançamento ============ -->
+    <section class="hero" data-tone="dark" data-rocket-x="0.74" data-rocket-anchor="end">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Estratégia para negócios.<br><em>Experiência para o futuro.</em></h1>
+          <p>Somos a Empresa Júnior da Universidade Vila Velha. Estudantes de diferentes cursos desenvolvem sites, automações e sistemas para empresas e profissionais.</p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#solucoes">Ver o que fazemos <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+            <a class="btn btn-secondary" href="/contato/">Conversar com a equipe</a>
+          </div>
+        </div>
+        <div class="hero-stage" aria-hidden="true">
+          <div class="hero-rings" data-drift="1">
+            <div class="hero-ring r1"></div>
+            <div class="hero-ring r2"></div>
+            <div class="hero-ring r3"></div>
+          </div>
+          <span class="hero-coord c1">20°19⬲S</span>
+          <span class="hero-coord c2">40°17⬲W</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Indicadores ============ -->
+    <section class="indicators" data-tone="dark" data-rocket-x="0.90" aria-label="Indicadores da EJUVV">
+      <div class="container indicators-inner">
+        <div class="stat">
+          <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-star"/></svg>
+          <strong data-count="4,4">4,4</strong>
+          <span>NPS</span>
+        </div>
+        <div class="stat">
+          <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-users"/></svg>
+          <strong data-count="+231">+231</strong>
+          <span>Alunos impactados</span>
+        </div>
+        <div class="stat">
+          <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-file-text"/></svg>
+          <strong data-count="+46">+46</strong>
+          <span>Projetos</span>
+        </div>
+        <div class="stat">
+          <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-target"/></svg>
+          <strong data-count="48">48</strong>
+          <span>Clientes</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Sobre: ascensão ============ -->
+    <section class="section" id="sobre" data-tone="light" data-rocket-x="0.95">
+      <div class="container split">
+        <div data-reveal>
+          <span class="eyebrow">Quem somos</span>
+          <h2>Estudantes da UVV trabalhando em projetos de verdade.</h2>
+          <p class="lead">Desde 2016, a EJUVV reúne estudantes de diferentes cursos para atender clientes, organizar projetos e entregar soluções digitais com orientação acadêmica.</p>
+          <p style="margin-top:26px">
+            <a class="text-link" href="/sobre/">Conheça nossa história <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+          </p>
+        </div>
+        <div class="media-placeholder" data-reveal data-reveal-delay="140">
+          <span>EJUVV desde 2016</span>
+          <small>Empresa Júnior da Universidade Vila Velha</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Soluções: exploração ============ -->
+    <section class="section on-dark" id="solucoes" data-tone="dark" data-rocket-x="0.94" data-rocket-anchor="end"
+             style="background:radial-gradient(ellipse 60% 50% at 12% 8%,rgba(255,255,255,.09),transparent 55%),var(--brand)">
+      <div class="container">
+        <div class="section-heading">
+          <div data-reveal>
+            <span class="eyebrow">Soluções</span>
+            <h2>O que podemos<br>construir com você.</h2>
+          </div>
+          <p data-reveal data-reveal-delay="120">A conversa começa pelo que não está funcionando hoje. Depois, a equipe define o escopo, os prazos e as entregas com você.</p>
+        </div>
+        <div class="service-grid">
+
+          <article class="service-card" data-reveal="stagger" data-reveal-group="svc" style="--tone:#eee8f7">
+            <span class="card-num">01</span>
+            <div class="service-icon"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-panels"/></svg></div>
+            <p class="service-problem"><small>Faz sentido quando</small><strong>A empresa quer vender pela internet, mas ainda não tem uma loja simples de usar.</strong></p>
+            <h3>E-commerce</h3>
+            <p>Planejamos e desenvolvemos lojas virtuais responsivas, com produtos bem organizados e um caminho de compra fácil de entender.</p>
+            <div class="service-actions">
+              <a class="text-link" href="/solucoes/e-commerce/">Saiba mais <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+              <a class="text-link" href="/contato/?servico=e-commerce">Falar com a equipe</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal="stagger" data-reveal-group="svc" style="--tone:#f2e7ee">
+            <span class="card-num">02</span>
+            <div class="service-icon"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-panels"/></svg></div>
+            <p class="service-problem"><small>Faz sentido quando</small><strong>O site está desatualizado, ou a empresa ainda depende apenas das redes sociais.</strong></p>
+            <h3>Site Institucional</h3>
+            <p>Criamos sites que apresentam a empresa, seus serviços e as formas de contato sem complicar a navegação.</p>
+            <div class="service-actions">
+              <a class="text-link" href="/solucoes/site-institucional/">Saiba mais <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+              <a class="text-link" href="/contato/?servico=site-institucional">Falar com a equipe</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal="stagger" data-reveal-group="svc" style="--tone:#e8ebf8">
+            <span class="card-num">03</span>
+            <div class="service-icon"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-file-text"/></svg></div>
+            <p class="service-problem"><small>Faz sentido quando</small><strong>Uma campanha precisa de uma página própria para explicar a oferta e receber contatos.</strong></p>
+            <h3>Landing Pages</h3>
+            <p>Desenvolvemos páginas focadas em uma única ação, como pedir orçamento, fazer cadastro ou agendar atendimento.</p>
+            <div class="service-actions">
+              <a class="text-link" href="/solucoes/landing-pages/">Saiba mais <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+              <a class="text-link" href="/contato/?servico=landing-pages">Falar com a equipe</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal="stagger" data-reveal-group="svc" style="--tone:#eee8f7">
+            <span class="card-num">04</span>
+            <div class="service-icon"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-waypoints"/></svg></div>
+            <p class="service-problem"><small>Faz sentido quando</small><strong>A equipe perde tempo repetindo respostas e encaminhando contatos manualmente.</strong></p>
+            <h3>Automa&ccedil;&atilde;o de Atendimento</h3>
+            <p>Organizamos fluxos automáticos para responder dúvidas iniciais, coletar informações e encaminhar cada contato.</p>
+            <div class="service-actions">
+              <a class="text-link" href="/solucoes/automacao-de-atendimento/">Saiba mais <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+              <a class="text-link" href="/contato/?servico=automacao-de-atendimento">Falar com a equipe</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal="stagger" data-reveal-group="svc" style="--tone:#f2e7ee">
+            <span class="card-num">05</span>
+            <div class="service-icon"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-database"/></svg></div>
+            <p class="service-problem"><small>Faz sentido quando</small><strong>Planilhas e tarefas manuais já não acompanham a rotina da empresa.</strong></p>
+            <h3>Sistemas Sob Medida</h3>
+            <p>Desenvolvemos sistemas para reunir informações, reduzir tarefas repetitivas e facilitar o acompanhamento da operação.</p>
+            <div class="service-actions">
+              <a class="text-link" href="/solucoes/sistemas-sob-medida/">Saiba mais <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+              <a class="text-link" href="/contato/?servico=sistemas-sob-medida">Falar com a equipe</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Processo ============ -->
+    <section class="section on-dark" data-tone="dark" data-rocket-x="0.06" data-rocket-anchor="start">
+      <div class="container">
+        <div data-reveal>
+          <span class="eyebrow">Como trabalhamos</span>
+          <h2>Você acompanha o projeto do começo ao fim.</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-progress"></div>
+          <div class="t-step"><span>01</span><p>Conversa e diagnóstico</p></div>
+          <div class="t-step"><span>02</span><p>Escopo e proposta</p></div>
+          <div class="t-step"><span>03</span><p>Planejamento</p></div>
+          <div class="t-step"><span>04</span><p>Desenvolvimento com acompanhamento</p></div>
+          <div class="t-step"><span>05</span><p>Entrega e orientação de uso</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Montagem: o foguete construído pelo scroll ============ -->
+    <section class="assembly" id="assembly" data-tone="dark" data-rocket-x="0.03" aria-labelledby="assembly-title">
+      <div class="assembly-stage" id="assembly-stage" data-phase="scatter">
+        <canvas id="assembly-canvas" aria-hidden="true"></canvas>
+        <div class="assembly-grid" aria-hidden="true"></div>
+
+        <div class="container assembly-hud">
+          <div class="assembly-copy">
+            <span class="eyebrow">Engenharia do projeto</span>
+            <h2 id="assembly-title" class="balance">Antes de construir,<br>a gente organiza.</h2>
+            <p>Entender o problema vem antes de escolher a ferramenta. Reunimos informações, definimos prioridades e só então começamos o desenvolvimento.</p>
+          </div>
+
+          <span class="assembly-cue" aria-hidden="true">Role para montar</span>
+
+          <div class="assembly-readout" aria-hidden="true">
+            <ol class="assembly-phases">
+              <li data-for="scatter">Fragmentos</li>
+              <li data-for="assemble">Convergência</li>
+              <li data-for="formed">Estrutura completa</li>
+              <li data-for="disassemble">Próxima órbita</li>
+            </ol>
+            <div class="assembly-bar"><span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Projetos: aceleração ============ -->
+    <section class="section" id="projetos" data-tone="light" data-rocket-x="0.05">
+      <div class="container">
+        <div class="section-heading">
+          <div data-reveal>
+            <span class="eyebrow">Projetos</span>
+            <h2>Trabalhos que já estão no ar.</h2>
+          </div>
+          <p data-reveal data-reveal-delay="120">Acesse os sites desenvolvidos pela EJUVV e veja o resultado diretamente no navegador.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card" data-reveal="stagger" data-reveal-group="proj">
+            <a class="project-visual project-visual-sites" href="/projetos/sites-profissionais-saude/" aria-label="Ver projeto: sites para três profissionais da saúde">
+              <img src="/assets/img/projects/site-karoliny-brum-home.png" alt="Home do site Dra. Karoliny Brum">
+              <img src="/assets/img/projects/site-eduarda-nascimento-home.png" alt="Home do site Eduarda do Nascimento Manzoli">
+              <img src="/assets/img/projects/site-pedro-calegari-home.png" alt="Home do site Dr. Pedro Calegari">
+              <span>3 sites publicados</span>
+            </a>
+            <div class="project-body">
+              <small>Sites e landing pages</small>
+              <h3>Sites para três profissionais da saúde</h3>
+              <p>Três profissionais precisavam apresentar seu trabalho na internet e facilitar o agendamento de consultas e avaliações.</p>
+              <a class="text-link" href="/projetos/sites-profissionais-saude/">Ver projeto <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Clientes: travessia ============ -->
+    <section class="section soft" data-tone="light" data-rocket-x="0.06" data-rocket-anchor="end">
+      <div class="container" data-reveal>
+        <span class="eyebrow">Clientes e parceiros</span>
+        <h2>Algumas marcas que já passaram pela EJUVV.</h2>
+      </div>
+      <div class="marquee" style="margin-top:48px" aria-label="Clientes e parceiros">
+        <div class="marquee-track">
+          <div class="logo-group">
+            <div class="logo-slot"><img src="/assets/img/clients/logo-uvv.png" alt="UVV"></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-influx-black.png" alt="inFlux"></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-eureca.png" alt="Eureca"></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-rede-tribuna.png" alt="Rede Tribuna"></div>
+            <div class="logo-slot logo-slot-wide"><img src="/assets/img/clients/logo-meu-dever-de-casa.png" alt="Meu Dever de Casa"></div>
+          </div>
+          <div class="logo-group" aria-hidden="true">
+            <div class="logo-slot"><img src="/assets/img/clients/logo-uvv.png" alt=""></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-influx-black.png" alt=""></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-eureca.png" alt=""></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-rede-tribuna.png" alt=""></div>
+            <div class="logo-slot logo-slot-wide"><img src="/assets/img/clients/logo-meu-dever-de-casa.png" alt=""></div>
+          </div>
+          <div class="logo-group" aria-hidden="true">
+            <div class="logo-slot"><img src="/assets/img/clients/logo-uvv.png" alt=""></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-influx-black.png" alt=""></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-eureca.png" alt=""></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-rede-tribuna.png" alt=""></div>
+            <div class="logo-slot logo-slot-wide"><img src="/assets/img/clients/logo-meu-dever-de-casa.png" alt=""></div>
+          </div>
+          <div class="logo-group" aria-hidden="true">
+            <div class="logo-slot"><img src="/assets/img/clients/logo-uvv.png" alt=""></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-influx-black.png" alt=""></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-eureca.png" alt=""></div>
+            <div class="logo-slot"><img src="/assets/img/clients/logo-rede-tribuna.png" alt=""></div>
+            <div class="logo-slot logo-slot-wide"><img src="/assets/img/clients/logo-meu-dever-de-casa.png" alt=""></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Órbita ============ -->
+    <section class="section on-dark" id="orbita" data-tone="dark" data-rocket-x="0.94" data-rocket-anchor="start"
+             style="background:linear-gradient(135deg,var(--deep),var(--brand) 56%,#6f3b78)">
+      <div class="container split">
+        <div data-reveal>
+          <span class="eyebrow">EJUVV Órbita</span>
+          <h2>Quer fazer parte da EJUVV?</h2>
+          <p class="lead">O Órbita é a porta de entrada para estudantes da UVV. Por lá, você acompanha processos seletivos, eventos e capacitações.</p>
+          <div class="button-row" style="margin-top:30px">
+            <a class="btn btn-light" href="/orbita/" data-magnetic>Conheça o Órbita <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+            <a class="btn btn-ghost" href="https://www.instagram.com/ejuvv.orbita/" target="_blank" rel="noreferrer">Siga @ejuvv.orbita</a>
+          </div>
+        </div>
+        <ul class="benefit-list">
+          <li data-reveal="stagger" data-reveal-group="orb"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-check"/></svg>Experiência real de mercado</li>
+          <li data-reveal="stagger" data-reveal-group="orb"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-check"/></svg>Desenvolvimento de liderança</li>
+          <li data-reveal="stagger" data-reveal-group="orb"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-check"/></svg>Networking</li>
+          <li data-reveal="stagger" data-reveal-group="orb"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-check"/></svg>Capacitações</li>
+          <li data-reveal="stagger" data-reveal-group="orb"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-check"/></svg>Movimento Empresa Júnior</li>
+          <li data-reveal="stagger" data-reveal-group="orb"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-check"/></svg>Trabalho multidisciplinar</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CTA comercial ============ -->
+    <section class="section" data-tone="light" data-rocket-x="0.95">
+      <div class="container cta-band" data-reveal>
+        <span class="eyebrow">Vamos conversar</span>
+        <h2>Tem um projeto em mente?</h2>
+        <p class="lead">Conte o que sua empresa precisa. A equipe responde para entender o contexto e avaliar como pode ajudar.</p>
+        <a class="btn btn-primary" href="/contato/" data-magnetic>Falar com a EJUVV <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+      </div>
+    </section>
+
+    <!-- ============ Contato: chegada ============ -->
+    <section class="section soft" id="contato" data-tone="light" data-rocket-x="0.92">
+      <div class="container split" style="align-items:start">
+
+        <div>
+          <div data-reveal>
+            <span class="eyebrow">Contato</span>
+            <h2>Prefere falar direto com a gente?</h2>
+            <p class="lead">Envie uma mensagem pelo WhatsApp ou preencha o formulário. Os dois caminhos levam à nossa equipe comercial.</p>
+          </div>
+
+          <div class="map-frame" id="map-frame" style="margin:34px 0" data-reveal>
+            <iframe title="Mapa da região da Universidade Vila Velha" tabindex="-1" loading="lazy"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-40.31043%2C-20.3715%2C-40.28643%2C-20.3543&amp;layer=mapnik&amp;marker=-20.3556038%2C-40.2984255"></iframe>
+            <a class="map-card" target="_blank" rel="noreferrer"
+               aria-label="Abrir a localização da EJUVV na Universidade Vila Velha no Google Maps"
+               href="https://www.google.com/maps/place/EJUVV/@-20.3543106,-40.2992636,17z/data=!4m12!1m5!3m4!2zMjDCsDIxJzE1LjUiUyA0MMKwMTcnNTcuNCJX!8m2!3d-20.3543106!4d-40.2992636!3m5!1s0xb81797c7fc676d:0x207bbcc835473b2b!8m2!3d-20.3556038!4d-40.2984255!16s%2Fg%2F11gtg815n9?entry=ttu">
+              <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-map-pin"/></svg>
+              <span><strong>EJUVV, Universidade Vila Velha</strong><small>Vila Velha/ES · Abrir no mapa</small></span>
+            </a>
+          </div>
+
+          <div class="faq" data-reveal>
+            <div class="faq-item is-open">
+              <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a1" id="faq-q1">Quais serviços a EJUVV oferece?<span class="faq-icon" aria-hidden="true"></span></button>
+              <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div><p>Hoje trabalhamos com sites institucionais, landing pages, e-commerce, automação de atendimento e sistemas sob medida.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">Como funciona o primeiro contato?<span class="faq-icon" aria-hidden="true"></span></button>
+              <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><div><p>Você envia as informações pelo formulário e continua a conversa no WhatsApp. A equipe lê o pedido e combina uma conversa para entender o projeto.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">Quem pode contratar os serviços da EJUVV?<span class="faq-icon" aria-hidden="true"></span></button>
+              <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><div><p>Profissionais autônomos, empresas e organizações podem solicitar um orçamento.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">Qual é o prazo médio de um projeto?<span class="faq-icon" aria-hidden="true"></span></button>
+              <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div><p>Depende do tamanho e da complexidade do projeto. O prazo é informado na proposta, antes do início do trabalho.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">Como é definido o orçamento?<span class="faq-icon" aria-hidden="true"></span></button>
+              <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><div><p>O valor considera o escopo, o prazo e as entregas. Tudo fica registrado na proposta comercial.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card" data-reveal data-reveal-delay="140">
+          <span class="eyebrow">Peça um orçamento</span>
+          <h3 style="margin-bottom:24px">Envie os dados do projeto.</h3>
+
+          <form id="contact-form" novalidate>
+            <div class="field-grid">
+              <div class="field"><label for="f-name">Nome completo</label><input id="f-name" name="name" autocomplete="name" placeholder="Como podemos chamar você?" required></div>
+              <div class="field"><label for="f-company">Empresa</label><input id="f-company" name="company" autocomplete="organization" placeholder="Nome da empresa" required></div>
+              <div class="field"><label for="f-email">E-mail</label><input id="f-email" type="email" name="email" autocomplete="email" placeholder="voce@empresa.com" required></div>
+              <div class="field"><label for="f-phone">WhatsApp</label><input id="f-phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="(27) 99999-9999" required></div>
+              <div class="field"><label for="f-service">Serviço de interesse</label><select id="f-service" name="service" required><option value="" disabled selected>Selecione uma solução</option></select></div>
+              <div class="field"><label for="f-size">Porte do negócio</label><select id="f-size" name="size" required><option value="" disabled selected>Selecione uma opção</option></select></div>
+              <div class="field full"><label for="f-message">O que você precisa?</label><textarea id="f-message" name="message" rows="5" placeholder="Descreva o projeto, o problema atual e o resultado esperado." required></textarea></div>
+            </div>
+
+            <input class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <label class="consent">
+              <input type="checkbox" name="consent" required>
+              <span>Concordo com o tratamento dos meus dados para retorno deste contato, conforme a <a href="/politica-de-privacidade/">Política de Privacidade</a>.</span>
+            </label>
+
+            <button class="btn btn-primary" type="submit" data-magnetic style="width:100%;justify-content:center">Continuar no WhatsApp <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></button>
+          </form>
+
+          <div class="form-success" id="form-success" hidden>
+            <span class="tick" aria-hidden="true">✓</span>
+            <h3 tabindex="-1">Mensagem preparada</h3>
+            <p>O WhatsApp foi aberto com os dados do formulário. Se isso não aconteceu, fale com a gente pelo número <a class="text-link" href="https://wa.me/5527993117132" target="_blank" rel="noreferrer">(27) 99311-7132</a>.</p>
+            <button class="btn btn-outline" type="button" id="form-reset">Enviar outra mensagem</button>
+          </div>
+
+          <div class="contact-details" style="margin-top:34px">
+            <div class="contact-row"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-mail"/></svg><div><small>E-mail</small><a href="mailto:comercial@ejuvv.com">comercial@ejuvv.com</a></div></div>
+            <div class="contact-row"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-message-circle"/></svg><div><small>WhatsApp</small><a href="https://wa.me/5527993117132" target="_blank" rel="noreferrer">(27) 99311-7132</a></div></div>
+            <div class="contact-row"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-map-pin"/></svg><div><small>Localização</small><span>Universidade Vila Velha, Vila Velha/ES</span></div></div>
+            <div class="contact-row"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-clock"/></svg><div><small>Atendimento</small><span>Segunda a sexta, das 9h às 18h</span></div></div>
+            <div class="contact-row"><svg aria-hidden="true"><use href="/assets/img/icons.svg#i-instagram"/></svg><div><small>Redes sociais</small><a href="https://instagram.com/ejuvv" target="_blank" rel="noreferrer">@ejuvv</a></div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <span class="brand">
+          <img class="brand-mark" src="/assets/img/logo-ejuvv-symbol.png" alt="" aria-hidden="true">
+          EJUVV
+        </span>
+        <p class="footer-tagline">Empresa Júnior da Universidade Vila Velha.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Navegue</h3>
+        <ul>
+          <li><a href="/sobre/">Sobre</a></li>
+          <li><a href="/solucoes/">Soluções</a></li>
+          <li><a href="/projetos/">Projetos</a></li>
+          <li><a href="/orbita/">Órbita</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contato</h3>
+        <ul>
+          <li><a href="mailto:comercial@ejuvv.com">comercial@ejuvv.com</a></li>
+          <li><a href="https://wa.me/5527993117132" target="_blank" rel="noreferrer">(27) 99311-7132</a></li>
+          <li><span>Universidade Vila Velha, Vila Velha/ES</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Transparência</h3>
+        <ul>
+          <li><a href="/politica-de-privacidade/">Política de Privacidade</a></li>
+          <li><a href="/termos-de-uso/">Termos de Uso</a></li>
+          <li><a href="https://instagram.com/ejuvv" target="_blank" rel="noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> EJUVV. Todos os direitos reservados.</span>
+      <span>Universidade Vila Velha</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5527993117132" target="_blank" rel="noreferrer" aria-label="Conversar pelo WhatsApp">
+  <svg aria-hidden="true"><use href="/assets/img/icons.svg#i-message-circle"/></svg>
+</a>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+<script type="module" src="/assets/js/pages/home.js"></script>
+</body>
+</html>

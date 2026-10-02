@@ -1,0 +1,257 @@
+/* ==========================================================================
+   EJUVV — base: fontes, tokens, reset, tipografia, container
+   ========================================================================== */
+
+/* ---------- Fontes auto-hospedadas ---------- */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url('/assets/fonts/space-grotesk-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url('/assets/fonts/space-grotesk-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
+    U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113,
+    U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/assets/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/assets/fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
+    U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113,
+    U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ---------- Tokens ---------- */
+:root {
+  /* Marca — herdada do site anterior, reorganizada em hierarquia deliberada */
+  --void: #0a0714;
+  --deep: #35143d;
+  --brand: #55235c;
+  --brand-lift: #704078;
+  --accent: #aab5ee;
+  --accent-strong: #8067ff;
+  --accent-soft: #e5bee9;
+
+  /* Neutros */
+  --ink: #111b2e;
+  --ink-soft: #5c6376;
+  --ink-faint: #8b91a1;
+  --paper: #f7f9fc;
+  --paper-warm: #f5f2f6;
+  --surface: #ffffff;
+  --line: #e2e0ea;
+  --line-dark: rgba(255, 255, 255, 0.14);
+
+  /* Texto sobre fundo escuro */
+  --on-dark: #ffffff;
+  --on-dark-soft: #cfc6d6;
+  --on-dark-faint: #9a8fa4;
+
+  --whatsapp: #24c66d;
+
+  /* Métrica */
+  --max: 1180px;
+  --gutter: 24px;
+  --radius: 14px;
+  --radius-lg: 22px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.75, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.22s;
+  --dur: 0.36s;
+
+  --header-h: 78px;
+
+  --font-display: 'Space Grotesk', 'Segoe UI Variable Display', 'Trebuchet MS',
+    system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', 'Segoe UI Variable Text', 'Segoe UI', system-ui,
+    -apple-system, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 20px);
+  /* `clip` e não `hidden`: overflow-x:hidden forçaria overflow-y a `auto`,
+     tornando o elemento um contêiner de scroll e quebrando a medição de
+     cena do ScrollObserver. */
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: -0.008em;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+video,
+iframe { display: block; max-width: 100%; }
+
+img,
+video { height: auto; }
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button { background: none; border: 0; cursor: pointer; }
+
+a { color: inherit; text-decoration: none; }
+
+ul,
+ol { list-style: none; padding: 0; }
+
+[hidden] { display: none !important; }
+
+:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--accent-strong);
+  color: #fff;
+}
+
+/* ---------- Tipografia ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.75rem, 6.2vw, 5rem);
+  line-height: 0.99;
+  letter-spacing: -0.05em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4.1vw, 3.4rem);
+  letter-spacing: -0.042em;
+}
+
+h3 {
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+p { text-wrap: pretty; }
+
+.lead {
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  line-height: 1.68;
+  letter-spacing: -0.014em;
+  color: var(--ink-soft);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 18px;
+}
+
+.balance { text-wrap: balance; }
+
+/* ---------- Layout base ---------- */
+.container {
+  width: min(var(--max), 100% - (var(--gutter) * 2));
+  margin-inline: auto;
+}
+
+.section { padding: clamp(72px, 9vw, 128px) 0; }
+
+/* Superfícies escuras */
+.on-dark {
+  background: var(--deep);
+  color: var(--on-dark);
+}
+.on-dark .eyebrow { color: var(--accent); }
+.on-dark .lead { color: var(--on-dark-soft); }
+.on-dark p { color: var(--on-dark-soft); }
+
+/* Acessibilidade */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  transform: translateY(-150%);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.skip-link:focus-visible { transform: translateY(0); }
+
+@media (max-width: 620px) {
+  :root { --gutter: 18px; --header-h: 66px; }
+  body { font-size: 15.5px; }
+}
